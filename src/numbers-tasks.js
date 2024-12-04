@@ -256,7 +256,7 @@ function getCube(a) {
  *   10 => 55
  */
 function getFibonacciNumber(i) {
-  throw new Error('Not implemented');
+  return i <= 1 ? i : getFibonacciNumber(i - 1) + getFibonacciNumber(i - 2);
 }
 
 /**
@@ -271,7 +271,7 @@ function getFibonacciNumber(i) {
  *   1  => 1
  */
 function getSumToN(n) {
-  throw new Error('Not implemented');
+  return n > 1 ? getSumToN(n - 1) + n : 1;
 }
 
 /**
@@ -285,8 +285,8 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  return num === 0 ? 0 : getSumOfDigits(Math.floor(num / 10)) + (num % 10);
 }
 
 /**
@@ -300,8 +300,13 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(n) {
+  let num = n;
+  while (num > 2) {
+    if (num % 2) return false;
+    num /= 2;
+  }
+  return true;
 }
 
 /**
@@ -314,8 +319,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -329,8 +334,8 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -343,7 +348,7 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
+function toExponential(/* x, f */) {
   throw new Error('Not implemented');
 }
 
